@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1> Games List </h1>
+
+    {% for game in object_list %}
+        <li>{{game.title}}</li>
+    {% empty %}
+        <li>No titles yet.</li>
+    {% endfor %}
+</body>
+</html>
