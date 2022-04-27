@@ -34,8 +34,8 @@ class Game_Type(models.Model):
 
 class Game_Modes(models.Model):  
 
-    Multiplayer = ' MP'
-    Singleplayer = 'SP'
+    Multiplayer = ' Multiplayer'
+    Singleplayer = 'Singleplayer'
     Choice_make = [(Multiplayer, 'Multiplayer'),
                     (Singleplayer, 'Singleplayer')]
 
@@ -58,7 +58,7 @@ class Game(models.Model):
     """
     objects = models.Manager()
     game_type = models.ForeignKey(Game_Type, on_delete=models.CASCADE,blank=True, null=True)
-    game_mode = models.ForeignKey(Game_Modes, on_delete=models.CASCADE,blank=True, null=True)
+    game_mode = models.ManyToManyField(Game_Modes)
     title = models.CharField(max_length=50)
     production_year = models.SmallIntegerField(default=None)
     description = models.TextField(max_length=500)
