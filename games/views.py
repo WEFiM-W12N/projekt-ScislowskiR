@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.views import generic
-from django.contrib.contenttypes.models import ContentType
 from .models import * 
 
 
@@ -8,18 +7,25 @@ from .models import *
 class TypeView(generic.ListView):
     model = Game_Type
     template_name = 'types_list_prop.html'
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
+    def get_queryset(self):
+        return Game_Type.objects.all()
+
 
 class ListView(generic.ListView):
     model = Game
     template_name = 'games_list_prop.html'
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data()
-        return context
+    def get_queryset(self):
+        return Game.objects.all()
+
 
 class DetailView(generic.DetailView):
-    template_name = 'details.html'
+
     model = Game
-    slug_field = 'title'
+    template_name = 'details.html'
+    slug_field = 'shortcut'
+    def list(request, title):
+         modes = Game.objects.get(title=title)
+         context = {
+             'modes': modes
+         }
+         return render(request, 'details.html', context)

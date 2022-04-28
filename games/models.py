@@ -1,5 +1,3 @@
-from enum import Enum
-from re import M
 from django.db import models
 
 
@@ -24,6 +22,8 @@ class Game_Type(models.Model):
                     choices=Choice_make,
                     default=None,
                     )
+
+    objects = models.Manager()
 
     def __str__(self):
         return f'{self.type}'
@@ -50,7 +50,7 @@ class Game_Modes(models.Model):
     class Meta:
         verbose_name = 'Game Mode'
     
-
+    objects = models.Manager()
 
 class Game(models.Model):
     """
@@ -59,6 +59,7 @@ class Game(models.Model):
     objects = models.Manager()
     game_type = models.ForeignKey(Game_Type, on_delete=models.CASCADE,blank=True, null=True)
     game_mode = models.ManyToManyField(Game_Modes)
+    shortcut = models.CharField(max_length=10)
     title = models.CharField(max_length=50)
     production_year = models.SmallIntegerField(default=None)
     description = models.TextField(max_length=500)

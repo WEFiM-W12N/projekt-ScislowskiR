@@ -7,7 +7,10 @@
 <body>
 <h1>Title: </h1> {{object.title}}
 <h1>Type:   </h1>{{object.game_type}}
-<h1>Mode:   </h1>{{object.game_mode}}
+<h1>Mode:   </h1>
+    {% for item in modes %}
+        {{object.game_mode}}
+    {% endfor %}
 <h1>Production year:  </h1>{{object.production_year}}
 <h1>Description:  </h1>
 {{object.description}}
