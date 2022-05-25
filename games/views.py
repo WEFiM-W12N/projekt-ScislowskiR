@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.views import generic
+from django.http import HttpResponseRedirect
 from .models import * 
-
+from .forms import GameForm
 
 
 class TypeView(generic.ListView):
@@ -28,3 +29,14 @@ class DetailView(generic.DetailView):
              'modes': modes
          }
          return render(request, 'details.html', context)
+
+
+def game_form_view(request):
+    form = GameForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+
+    context = {
+        'form': form
+    }
+    return render(request, "game_form.html", context)
