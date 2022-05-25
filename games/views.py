@@ -19,7 +19,6 @@ class ListView(generic.ListView):
 
 
 class DetailView(generic.DetailView):
-
     model = Game
     template_name = 'details.html'
     slug_field = 'shortcut'

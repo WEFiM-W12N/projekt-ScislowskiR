@@ -64,6 +64,7 @@ class Game(models.Model):
     production_year = models.SmallIntegerField(default=None)
     description = models.TextField(max_length=500)
 
+
     def __str__(self):
         return f'{self.title}'
     
