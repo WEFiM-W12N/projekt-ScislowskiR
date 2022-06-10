@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1> Model operations List </h1>
+
+    {% for model in object_list %}
+        <li>{{model.operations }}</li>
+    {% empty %}
+        <li>No operations yet.</li>
+    {% endfor %}
+</body>
+</html>

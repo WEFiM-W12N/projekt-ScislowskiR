@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1> Model public List </h1>
+
+    {% for model in object_list %}
+        <li>{{model.public }}</li>
+    {% empty %}
+        <li>No public yet.</li>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1> Models custom List </h1>
+
+    {% for model in object_list %}
+        <li>{{model.custom}}</li>
+    {% empty %}
+        <li>No custom yet.</li>
+    {% endfor %}
+</body>
+</html>

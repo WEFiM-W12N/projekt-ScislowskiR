@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1> Models deep_learning List </h1>
+
+    {% for model in object_list %}
+        <li>{{model.deep_learning}}</li>
+    {% empty %}
+        <li>No deep_learning yet.</li>
+    {% endfor %}
+</body>
+</html>

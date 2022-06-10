@@ -16,11 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from games.views import *
+from mlmodele.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('games/', include('games.urls', namespace='games')),
+    path('mlmodele/', include('mlmodele.urls', namespace='mlmodele')),
     
     
 ]
